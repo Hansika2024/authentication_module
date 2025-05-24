@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Authentication Module</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="auth-wrapper" id="auth-wrapper">
+      <!-- Login Form -->
+      <div id="login-form" class="form-container active">
+        <h2>Login</h2>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" />
+        </div>
+        <div class="form-group checkbox-label">
+          <input type="checkbox" id="remember-device" />
+          <label for="remember-device">Remember this device</label>
+        </div>
+        <div class="form-group captcha">
+          <label>CAPTCHA (demo): 3 + 2 = ?</label>
+          <input type="text" id="captcha-answer" placeholder="Enter answer" />
+        </div>
+        <button class="btn btn-primary" onclick="handleLogin()">Login</button>
+        <div class="form-footer">
+          <p><a href="#" class="toggle-form" data-target="recovery-form">Forgot Password?</a></p>
+          <p><a href="#" class="toggle-form" data-target="signup-form">Don't have an account? Sign up</a></p>
+        </div>
+        <div class="social-login">
+          <div class="social-divider"><span>or</span></div>
+          <div class="social-buttons">
+            <button class="btn btn-google" onclick="handleSocialLogin('Google')">Sign in with Google</button>
+            <button class="btn btn-linkedin" onclick="handleSocialLogin('LinkedIn')">Sign in with LinkedIn</button>
+            <button class="btn btn-sso" onclick="handleSSOLogin()">Enterprise SSO</button>
+          </div>
+        </div>
+        <div id="login-error" class="error-message"></div>
+      </div>
+
+      <!-- Sign-Up Form -->
+      <div id="signup-form" class="form-container">
+        <h2>Create Account</h2>
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" placeholder="Create a password" />
+        </div>
+        <div class="form-group">
+          <label for="signup-otp">MFA OTP (demo: enter 123456)</label>
+          <input type="text" id="signup-otp" placeholder="Enter OTP" />
+        </div>
+        <button class="btn btn-primary" onclick="handleSignup()">Sign Up</button>
+        <div class="form-footer">
+          <p><a href="#" class="toggle-form" data-target="login-form">Already have an account? Login</a></p>
+        </div>
+        <div id="signup-error" class="error-message"></div>
+      </div>
+
+      <!-- Recovery Form -->
+      <div id="recovery-form" class="form-container">
+        <h2>Recover Account</h2>
+        <div class="form-group">
+          <label for="recovery-email">Email</label>
+          <input type="email" id="recovery-email" placeholder="Enter your email" />
+        </div>
+        <button class="btn btn-primary" onclick="handleRecovery()">Recover Password</button>
+        <div class="form-footer">
+          <p><a href="#" class="toggle-form" data-target="login-form">Back to Login</a></p>
+        </div>
+        <div id="recovery-message" class="success-message"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js">
+  </script>
+</body>
+</html>
